@@ -1,13 +1,33 @@
-package pio;
+package dicegame;
 
 import java.util.Random;
 
+/**
+ * Klasa reprezentuje komputerowego gracza odgadującego wylosowaną liczbę.
+ * 
+ * Klasa rozszerza abstrakcyjną klasę Player
+ * 
+ */
 public class PlayerComp extends Player {
+    
+    //"odgadywacz"
+    private Random guesser = new Random();
+	
+	public PlayerComp() {}
+    
+	public PlayerComp(String name) {
+		super(name);
+		System.out.println("PlayerCom(String)");
+	}
 
-    private Random random = new Random();
-
+    /**
+     * Metoda odgadująca liczbę.
+     * 
+     * @return odgadnięta (wylosowana) liczba
+     */ 
     @Override
     public int guess() {
-        return (random.nextInt(6) + 1);
-    }
+        int guess = guesser.nextInt(6) + 1;
+        return guess;
+    } 
 }
